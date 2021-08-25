@@ -1,1 +1,1 @@
-server <- function(input, output) { }
+server <- function(input, output) {}
