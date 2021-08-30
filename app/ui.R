@@ -13,11 +13,13 @@ body <- dashboardBody(
                 textInput('name', 'Name: '),
                 textInput('email', 'Email: '),
                 textInput('pin', 'PIN: '),
-                textInput('message', 'Message: ')
+                textAreaInput('message', 'Message: '),
+                actionButton('submit', 'Submit')
         ),
         
         tabItem(tabName = "table",
-                h2("Message Table")
+                h2("Message Table"),
+                dataTableOutput('outputTable')
         )
     )
 )
