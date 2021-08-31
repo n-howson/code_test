@@ -1,11 +1,16 @@
-library(shiny)
-library(shinyjs)
-library(shinydashboard)
-library(shinyWidgets)
-library(data.table)
-library(DT)
-library(parsedate)
+# Package read in. ------------------------------------------------------------
 
+library(shiny) # Required for Shiny.
+library(shinydashboard) # Extends Shiny to more attractive UI.
+library(data.table) # Allows for better performance than dplyr/tidyverse/base for summary of data.
+library(DT) # Allows for better display of data tables.
+library(parsedate) # Enables easy ISO-8601 display.
+
+
+# Data initialisation ---------------------------------------------------------
+
+# Check if messages already exist, if so, read in existing messages
+# if not, create empty data table.
 if(file.exists('dataTable.csv')){
   messageList <- fread('dataTable.csv',
                        colClasses = c('character', 'character', 
@@ -19,4 +24,5 @@ if(file.exists('dataTable.csv')){
                             Email = character())
 }
 
+# Make initial data reactive.
 rv <- reactiveValues(data = messageList)

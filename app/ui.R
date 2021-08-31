@@ -1,6 +1,9 @@
-header <-  dashboardHeader(title = 'Code Test')
+# Header. ---------------------------------------------------------------------
+header <-  dashboardHeader(title = 'Code Test') # Create header with dashboard title.
 
+# Sidebar. --------------------------------------------------------------------
 sidebar <- dashboardSidebar(
+    # Create selectable menu tabs, as well as link to git repository
     sidebarMenu(menuItem('Message Submission', tabName = 'submission'),
                 menuItem('Message Table', tabName = 'table'),
                 menuItem("Git Repository (External Link)",
@@ -8,8 +11,10 @@ sidebar <- dashboardSidebar(
     )
 )
 
+# Body ------------------------------------------------------------------------
 body <- dashboardBody(
     
+    # Implement corporate, more stylish colours on dashboard. -----------------
     tags$head(tags$style(HTML('
 
                             /* title */
@@ -77,22 +82,25 @@ body <- dashboardBody(
                             '))),
     
     tabItems(
+
+# Submissions Page ------------------------------------------------------------
         tabItem(tabName = "submission",
-                h2("Message Submission"),
-                textInput('name', 'Name: '),
-                textInput('email', 'Email: '),
-                textInput('pin', 'PIN: '),
-                textAreaInput('message', 'Message: '),
-                actionButton('submit', 'Submit')
+                h2("Message Submission"), # Page header.
+                textInput('name', 'Name: '), # Name input.
+                textInput('email', 'Email: '), # Name input.
+                textInput('pin', 'PIN: '), # Name input. Could upgrade to passwordInput.
+                textAreaInput('message', 'Message: '), # Message input, textAreaInput enables more readable text entry.
+                actionButton('submit', 'Submit') # Submit button that kicks off write to data table and clears text (see server.R).
         ),
-        
+
+# Message List Page -----------------------------------------------------------        
         tabItem(tabName = "table",
-                h2("Message Table"),
-                DTOutput('outputTable'),
-                downloadButton('summary', 'Download Email Summary')
+                h2("Message Table"), # Page header.
+                DTOutput('outputTable'), # Message list table.
+                downloadButton('summary', 'Download Email Summary') # Download button for Unique Email message count.
         )
     )
 )
 
 
-dashboardPage(header, sidebar, body)
+dashboardPage(header, sidebar, body) # Brings together above code to full UI layout.
