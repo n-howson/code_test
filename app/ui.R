@@ -7,6 +7,73 @@ sidebar <- dashboardSidebar(
 )
 
 body <- dashboardBody(
+    
+    tags$head(tags$style(HTML('
+
+                            /* title */
+
+                            .skin-blue .main-header .logo {
+
+                            background-color: #1c355e;
+
+                            font-size: 15px;
+
+                            }
+
+                           
+
+                            /* title when hovered */
+
+                            .skin-blue .main-header .logo:hover {
+
+                            background-color: #1c355e;
+
+                            }
+
+                            
+
+                            /* navbar (rest of the header) */
+
+                            .skin-blue .main-header .navbar {
+
+                            background-color: #1c355e;
+
+                            }       
+
+                            
+
+                            /* main sidebar */
+
+                            .skin-blue .main-sidebar {
+
+                            background-color: #8f1f1a;
+
+                            }
+
+                           
+
+                            /* active selected tab in the sidebarmenu */
+
+                            .skin-blue .main-sidebar .sidebar .sidebar-menu .active a:hover,
+
+                            .skin-blue .main-sidebar .sidebar .sidebar-menu .active a{
+
+                            background-color: #ff271c;
+
+                            }
+
+                           
+
+                            /* other links in the sidebarmenu when hovered */
+
+                            .skin-blue .main-sidebar .sidebar .sidebar-menu a:hover{
+
+                            background-color: #d93e36;
+
+                            }
+
+                            '))),
+    
     tabItems(
         tabItem(tabName = "submission",
                 h2("Message Submission"),
