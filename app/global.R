@@ -4,16 +4,19 @@ library(shinydashboard)
 library(shinyWidgets)
 library(data.table)
 library(DT)
+library(parsedate)
 
 if(file.exists('data/dataTable.csv')){
   messageList <- fread('data/dataTable.csv',
                        colClasses = c('character', 'character', 
-                                      'character', 'character'))
+                                      'character', 'character',
+                                      'character'))
 } else {
-  messageList <- data.table(Name = character(), 
-                            Email = character(), 
-                            PIN = character(), 
-                            Message = character())
+  messageList <- data.table(Time = character(), 
+                            Name = character(), 
+                            Message = character(),
+                            PIN = character(),
+                            Email = character())
 }
 
 rv <- reactiveValues(data = messageList)

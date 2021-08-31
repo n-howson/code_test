@@ -1,10 +1,11 @@
 server <- function(input, output, session) {
   
   observeEvent(input$submit, {
-    rv$data <- rbind(rv$data, data.table(Name = input$name, 
-                                         Email = input$email,
+    rv$data <- rbind(rv$data, data.table(Time = format_iso_8601(Sys.time()),
+                                         Name = input$name, 
+                                         Message = input$message,
                                          PIN = input$pin,
-                                         Message = input$message))
+                                         Email = input$email))
     updateTextInput(session, 'name', value = '')
     updateTextInput(session, 'email', value = '')
     updateTextInput(session, 'pin', value = '')
@@ -14,7 +15,7 @@ server <- function(input, output, session) {
   })
   
   output$outputTable <- renderDT(
-    DT::datatable(rv$data)
+    DT::datatable(rv$data[, .(Time, Name, Message)])
     )
   
   output$summary <- downloadHandler(
