@@ -6,8 +6,8 @@ library(data.table)
 library(DT)
 library(parsedate)
 
-if(file.exists('data/dataTable.csv')){
-  messageList <- fread('data/dataTable.csv',
+if(file.exists('dataTable.csv')){
+  messageList <- fread('dataTable.csv',
                        colClasses = c('character', 'character', 
                                       'character', 'character',
                                       'character'))

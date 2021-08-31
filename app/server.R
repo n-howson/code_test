@@ -11,7 +11,7 @@ server <- function(input, output, session) {
     updateTextInput(session, 'pin', value = '')
     updateTextAreaInput(session, 'message', value = '')
     
-    fwrite(rv$data, 'data/dataTable.csv')
+    fwrite(rv$data, 'dataTable.csv')
   })
   
   output$outputTable <- renderDT(
