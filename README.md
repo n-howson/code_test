@@ -19,4 +19,4 @@ Regarding the requirements:
   - Message: display a `Reveal` button that show a modal with an input field to validate the pin number, then fetch the message or throw an error when invalid ___NOT COMPLETE___
 - Add ability to export a CSV with unique emails and respective counts ___COMPLETE___
 
-The dashboard is deployed [here](https://howsnich10.shinyapps.io/code_test/) at shinyapps.io.
+The dashboard is deployed [here](https://howsnich10.shinyapps.io/code_test/) at shinyapps.io. This deployment may be unstable as it has not been tested extensively in that environment.
