@@ -14,4 +14,15 @@ server <- function(input, output, session) {
   })
   
   output$outputTable <- renderDataTable(rv$data)
+  
+  output$summary <- downloadHandler(
+    filename = function() {
+      'code_test_export.csv'
+    },
+    content = function(file) {
+      write.csv(
+        rv$data[, .(`Message Count` = .N), by = Email]
+        , file, row.names = FALSE)
+    }
+  )
 }
