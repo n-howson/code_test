@@ -1,8 +1,10 @@
 header <-  dashboardHeader(title = 'Code Test')
 
 sidebar <- dashboardSidebar(
-    sidebarMenu(menuItem('Message Submission', tabName = 'submission', icon = icon('sign-in-alt')),
-                menuItem('Message Table', tabName = 'table', icon = icon('table'))
+    sidebarMenu(menuItem('Message Submission', tabName = 'submission'),
+                menuItem('Message Table', tabName = 'table'),
+                menuItem("Git Repository (External Link)",
+                         href = "https://github.com/n-howson/code_test/")
     )
 )
 
@@ -87,7 +89,7 @@ body <- dashboardBody(
         tabItem(tabName = "table",
                 h2("Message Table"),
                 DTOutput('outputTable'),
-                downloadButton('summary', 'Download Email summary')
+                downloadButton('summary', 'Download Email Summary')
         )
     )
 )
