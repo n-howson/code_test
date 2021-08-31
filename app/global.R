@@ -3,6 +3,7 @@ library(shinyjs)
 library(shinydashboard)
 library(shinyWidgets)
 library(data.table)
+library(DT)
 
 if(file.exists('data/dataTable.csv')){
   messageList <- fread('data/dataTable.csv',

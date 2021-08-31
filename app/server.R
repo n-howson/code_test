@@ -13,7 +13,9 @@ server <- function(input, output, session) {
     fwrite(rv$data, 'data/dataTable.csv')
   })
   
-  output$outputTable <- renderDataTable(rv$data)
+  output$outputTable <- renderDT(
+    DT::datatable(rv$data)
+    )
   
   output$summary <- downloadHandler(
     filename = function() {

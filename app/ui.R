@@ -19,7 +19,7 @@ body <- dashboardBody(
         
         tabItem(tabName = "table",
                 h2("Message Table"),
-                dataTableOutput('outputTable'),
+                DTOutput('outputTable'),
                 downloadButton('summary', 'Download Email summary')
         )
     )
